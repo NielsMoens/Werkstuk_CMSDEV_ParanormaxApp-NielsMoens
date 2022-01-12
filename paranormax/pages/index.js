@@ -1,9 +1,10 @@
 import {useQuery} from "@apollo/client";
-import GET_ASSIGNMENTS from "../lib/assigments/getAssigments";
+import GET_ASSIGNMENTS from "../lib/Queries/getAssigments";
 import Header from "../compenents/App/Header/Header";
 import Footer from "../compenents/App/Footer/Footer";
 import Assignments from "../compenents/App/Content/Assigments/Assignments";
 import App from "../compenents/App/App";
+import AuthContainer from "../compenents/Auth/AuthContainer";
 
 export default function Home() {
   const AssQuery = useQuery(GET_ASSIGNMENTS);
@@ -33,7 +34,7 @@ export default function Home() {
     //   ))}
     // </div>
       <>
-       <App/>
+       <AuthContainer/>
       </>
   );
 }
