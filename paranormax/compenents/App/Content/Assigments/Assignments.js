@@ -18,9 +18,7 @@ const Assignments = () => {
                                 <div className="row align-items-center">
                                     <div className="col-5 col-sm-7 col-xl-8 ml-4 p-2">
                                         <p className="mb-1 mb-sm-0">Welcome back user</p>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -38,13 +36,10 @@ const Assignments = () => {
                                             <div className=" row d-flex align-items-center align-self-start">
                                                 <div className="col-12">
                                                     <h3 className="mb-0">{entry.title}</h3>
-                                                    
                                                     <span className={entry.assigmentStatus[0].title === 'failed' ? "text-danger ml-2 mb-0 font-weight-medium" : "text-success ml-2 mb-0 font-weight-medium"}>
                                                         {entry.assigmentStatus[0].title}
                                                     </span>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <img src={entry.mainImage[0].url} alt="..." className="img-fluid img-thumbnail"/>

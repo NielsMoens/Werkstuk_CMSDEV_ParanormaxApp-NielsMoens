@@ -5,6 +5,7 @@ import Input from "../../compenents/Design/Input";
 import Btn from "../../compenents/Design/Btn";
 import {useMutation} from "@apollo/client";
 import GET_LOGINDATA from "../../lib/Queries/getLoginData";
+import Footer from "../../compenents/App/Footer/Footer";
 
 let schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -117,6 +118,7 @@ const LoginPage = ({setUser}) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };
