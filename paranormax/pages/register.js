@@ -1,26 +1,23 @@
-import * as yup from "yup";
-import Link from "next/link";
-import {useState} from "react";
-import Input from "../../compenents/Design/Input";
-import Btn from "../../compenents/Design/Btn";
-import {useMutation} from "@apollo/client";
-import GET_LOGINDATA from "../../lib/Queries/getLoginData";
-import Footer from "../../compenents/App/Footer/Footer";
+import Footer from "../compenents/App/Footer/Footer";
+import {useEffect, useState} from "react";
+import Input from "../compenents/Design/Input";
+import {useRouter} from "next/router";
+import {useAuth} from "../hooks/useAuth";
 
-let schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-});
+const Register = () => {
+    const { push } = useRouter();
+    const { isAuthenticated, registerUser } = useAuth();
 
-
-const LoginPage = ({setUser}) => {
     const [data, setData] = useState({
         email: '',
         password: ''
     });
 
-    const [errors, setErrors] = useState({});
-    const [checkLogin, {something, loading, error}] = useMutation(GET_LOGINDATA)
+    useEffect(() => {
+        if (isAuthenticated) {
+            return push('/app');
+        }
+    })
 
     const handleChange = (event) => {
         setData({
@@ -29,37 +26,15 @@ const LoginPage = ({setUser}) => {
         });
     };
 
+    const navigateToLogin = (e) => {
+        e.preventDefault();
+        return push('/login')
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        schema.validate(data)
-            .then(() =>{
-                checkLogin({
-                    variables: data,
-                    onCompleted: ({authenticate})=>{
-                        console.log('logged in');
-                    },
-                }).then((data)=>{
-                    localStorage.setItem("userdata", JSON.stringify(data.data.authenticate));
-                    // setUser = data.data.authenticate;
-                    console.log(setUser);
-                })
-                console.log(data);
-            })
-            .catch((err) => {
-            console.log(err.errors);
-        });
-
-    };
-
-    const storeUser = (user) => {
-
-    };
-
-    const storage = {
-        storeUser,
-    };
-
-
+        registerUser(data);
+    }
 
     return (
         <>
@@ -69,10 +44,14 @@ const LoginPage = ({setUser}) => {
                         <div className="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
                             <div className="card col-lg-4 mx-auto">
                                 <div className="card-body px-5 py-5">
-                                    <h3 className="card-title text-left mb-3">Login</h3>
+                                    <h3 className="card-title text-left mb-3">Register</h3>
                                     <form onSubmit={handleSubmit}>
                                         <div className="form-group">
-                                            <label>Username or email *</label>
+                                            <label>Username</label>
+                                            <input type="text" className="form-control p_input"/>
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Email</label>
                                             <Input
                                                 placeholder="email"
                                                 id="email"
@@ -85,7 +64,7 @@ const LoginPage = ({setUser}) => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label>Password *</label>
+                                            <label>Password</label>
                                             <Input
                                                 id="password"
                                                 className="form-control p_input"
@@ -97,19 +76,18 @@ const LoginPage = ({setUser}) => {
                                                 // error={errors.password}
                                             />
                                         </div>
-                                        <div className="form-group d-flex align-items-center justify-content-between">
-                                            <Link href='/Onboarding/ForgotPassword'><a href="#" className="forgot-pass">Forgot password</a></Link>
-                                        </div>
+
                                         <div className="text-center">
-                                            <Btn className="btn btn-primary btn-block enter-btn" onClick={handleSubmit.onCompleted} type="submit"> Login </Btn>
+                                            <button type="submit" onClick={handleSubmit.onCompleted}
+                                                    className="btn btn-primary btn-block enter-btn">Register
+                                            </button>
                                         </div>
-                                        <p className="sign-up">
-                                            Don't have an Account?
-                                            <Link href='/Onboarding/Register'>
-                                                <a href="#">
-                                                    Sign Up
+
+                                        <p className="sign-up text-center">
+                                                Already have an Account?
+                                                <a onClick={navigateToLogin}>
+                                                     Sign In
                                                 </a>
-                                            </Link>
                                         </p>
                                     </form>
                                 </div>
@@ -118,9 +96,8 @@ const LoginPage = ({setUser}) => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     );
 };
 
-export default LoginPage;
+export default Register;
