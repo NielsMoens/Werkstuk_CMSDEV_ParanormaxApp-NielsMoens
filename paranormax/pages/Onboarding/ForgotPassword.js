@@ -1,8 +1,6 @@
 
 
 const LoginPage = () => {
-
-
     return (
         <>
             <div className="container-scroller">

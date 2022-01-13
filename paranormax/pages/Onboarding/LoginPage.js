@@ -12,7 +12,7 @@ let schema = yup.object().shape({
 });
 
 
-const LoginPage = (setUser) => {
+const LoginPage = ({setUser}) => {
     const [data, setData] = useState({
         email: '',
         password: ''
@@ -35,10 +35,11 @@ const LoginPage = (setUser) => {
                 checkLogin({
                     variables: data,
                     onCompleted: ({authenticate})=>{
-                        console.log('loged in ');
+                        console.log('logged in');
                     },
                 }).then((data)=>{
-                    setUser = data.data.authenticate;
+                    localStorage.setItem("userdata", JSON.stringify(data.data.authenticate));
+                    // setUser = data.data.authenticate;
                     console.log(setUser);
                 })
                 console.log(data);
@@ -48,6 +49,16 @@ const LoginPage = (setUser) => {
         });
 
     };
+
+    const storeUser = (user) => {
+
+    };
+
+    const storage = {
+        storeUser,
+    };
+
+
 
     return (
         <>
@@ -89,7 +100,7 @@ const LoginPage = (setUser) => {
                                             <Link href='/Onboarding/ForgotPassword'><a href="#" className="forgot-pass">Forgot password</a></Link>
                                         </div>
                                         <div className="text-center">
-                                            <Btn className="btn btn-primary btn-block enter-btn" color="primary" type="submit"> Login </Btn>
+                                            <Btn className="btn btn-primary btn-block enter-btn" onClick={handleSubmit.onCompleted} type="submit"> Login </Btn>
                                         </div>
                                         <p className="sign-up">
                                             Don't have an Account?

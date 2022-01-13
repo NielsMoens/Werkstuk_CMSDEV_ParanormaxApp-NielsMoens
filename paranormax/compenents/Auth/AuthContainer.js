@@ -4,16 +4,19 @@ import {useState} from "react";
 
 
 const AuthContainer = () => {
-    const [user, setUser] = useState();
-    console.log(user)
-    if (user) {
+
+    let [user, setUser] = useState();
+    setUser = localStorage.getItem("userdata");
+
+    console.log('auth '+ user)
+    // if (user) {
         return (
             <App />
         );
-    }
-    return (
-              <LoginPage setUser={setUser} />
-    );
+    // // } else{
+    //     return (
+    //         <LoginPage setUser={setUser} />
+    //     );
 };
 
 

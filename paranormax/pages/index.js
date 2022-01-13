@@ -22,13 +22,7 @@ export default function Home() {
   const { entries } = data;
 
   return (
-    // <div>
-    //   {entries.map((entry)=>(
-    //       <div key={entry.id}>
-    //        <h2>{entry.title}</h2>
-    //       </div>
-    //   ))}
-    // </div>
+
       <>
        <AuthContainer/>
       </>
