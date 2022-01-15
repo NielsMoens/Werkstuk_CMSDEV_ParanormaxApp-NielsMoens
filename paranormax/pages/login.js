@@ -94,7 +94,7 @@ const Login = () => {
                                             <Btn className="btn btn-primary btn-block enter-btn" onClick={handleSubmit.onCompleted} type="submit"> Login </Btn>
                                         </div>
                                         <p className="sign-up">
-                                            Don't have an Account?
+                                            Don&apos;t have an Account?
 
                                             <a onClick={navigateToRegister}>
                                                 Sign Up
