@@ -1,4 +1,4 @@
-import '../styles/Styles.scss'
+// import '../styles/Styles.scss'
 import Layout from "../compenents/Layout";
 import {AuthProvider} from "../compenents/Auth/AuthProvider";
 import {ApolloProvider} from "@apollo/client";
