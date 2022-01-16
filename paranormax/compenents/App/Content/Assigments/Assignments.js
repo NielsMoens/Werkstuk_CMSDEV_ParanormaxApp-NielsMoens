@@ -2,10 +2,12 @@ import {useMutation, useQuery} from "@apollo/client";
 import GET_ASSIGNMENTS from "../../../../lib/Queries/getAssigments";
 import {getUser} from "../../../core/storage";
 import MUTATE_QUEUE_ASSIGN_USER from "../../../../lib/mutations/queueUserAssignment";
+import {useRouter} from "next/router";
 
 // voor dat je user approved => popup met alle queued users per assignment
 
 const Assignments = () => {
+    const router = useRouter();
     const AssQuery = useQuery(GET_ASSIGNMENTS);
     const [queueUserAssignment] = useMutation(MUTATE_QUEUE_ASSIGN_USER);
     const { data, loading, error } = AssQuery;
@@ -13,11 +15,6 @@ const Assignments = () => {
     const userD = getUser();
 
     const assignUser = async (assignmentId) => {
-        console.log({
-            assignment: [parseInt(assignmentId)],
-            assignee: [parseInt(userD.user.id)],
-            authorId: parseInt(userD.user.id)
-        })
         await queueUserAssignment({
             variables: {
                 assignment: [parseInt(assignmentId)],
@@ -25,6 +22,10 @@ const Assignments = () => {
                 authorId: parseInt(userD.user.id)
             },
         }).catch(e => console.log(e))
+    }
+
+    const showDetails = (assignmentId) => {
+        return router.push(`/app/assignment/${assignmentId}`);
     }
 
     if (loading) return 'Loading...';
@@ -57,12 +58,17 @@ const Assignments = () => {
                                     <div className="row">
                                         <div className="col-12 mb-4">
                                             <div className=" row d-flex align-items-center align-self-start">
-                                                <div className="col-12">
+                                                <div className="col-9">
                                                     <h3 className="mb-0">{entry.title}</h3>
                                                     <span
                                                         className={entry.assigmentStatus[0].title === 'failed' ? "text-danger ml-2 mb-0 font-weight-medium" : "text-success ml-2 mb-0 font-weight-medium"}>
                                                         {entry.assigmentStatus[0].title}
                                                     </span>
+                                                </div>
+                                                <div className="col-3">
+                                                    <button onClick={(e) => { e.preventDefault(); return showDetails(entry.id) }}>
+                                                        show details
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
