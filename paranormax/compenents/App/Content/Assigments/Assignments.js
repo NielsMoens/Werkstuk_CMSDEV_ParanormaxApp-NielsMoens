@@ -1,13 +1,31 @@
-import {useQuery} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import GET_ASSIGNMENTS from "../../../../lib/Queries/getAssigments";
 import {getUser} from "../../../core/storage";
+import MUTATE_QUEUE_ASSIGN_USER from "../../../../lib/mutations/queueUserAssignment";
+
+// voor dat je user approved => popup met alle queued users per assignment
 
 const Assignments = () => {
     const AssQuery = useQuery(GET_ASSIGNMENTS);
+    const [queueUserAssignment] = useMutation(MUTATE_QUEUE_ASSIGN_USER);
     const { data, loading, error } = AssQuery;
 
     const userD = getUser();
-    console.log(userD.user.firstName);
+
+    const assignUser = async (assignmentId) => {
+        console.log({
+            assignment: [parseInt(assignmentId)],
+            assignee: [parseInt(userD.user.id)],
+            authorId: parseInt(userD.user.id)
+        })
+        await queueUserAssignment({
+            variables: {
+                assignment: [parseInt(assignmentId)],
+                assignee: [parseInt(userD.user.id)],
+                authorId: parseInt(userD.user.id)
+            },
+        }).catch(e => console.log(e))
+    }
 
     if (loading) return 'Loading...';
     const { entries } = data;
@@ -59,6 +77,9 @@ const Assignments = () => {
                                         <div className="col-3 mt-3">
                                             <p className="text-muted font-weight-normal">{new Date(entry.postDate).toLocaleDateString()}</p>
                                         </div>
+                                        { entry.assigmentStatus[0].title === 'searching' ? <button onClick={(e) => { e.preventDefault(); return assignUser(entry.id) }}>
+                                            Assign
+                                        </button> : ''}
                                     </div>
                                 </div>
                             </div>
