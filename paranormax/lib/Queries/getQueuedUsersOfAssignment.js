@@ -10,9 +10,13 @@ const GET_QUEUED_ASSIGNMENTS_OF_ASSIGNMENT = gql`
             name
           }
           assignment {
+            id
             title
             postDate
             status
+          },
+          assigneeStatus {
+            title
           }
         }
       }

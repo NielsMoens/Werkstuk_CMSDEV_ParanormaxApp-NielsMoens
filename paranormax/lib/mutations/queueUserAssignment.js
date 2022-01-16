@@ -9,6 +9,9 @@ const MUTATE_QUEUE_ASSIGN_USER = gql`
         assignee {
           id,
           name
+        },
+        assigneeStatus {
+          title
         }
       }
     }

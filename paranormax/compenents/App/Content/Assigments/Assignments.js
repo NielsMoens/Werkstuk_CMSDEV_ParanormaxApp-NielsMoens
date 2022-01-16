@@ -21,7 +21,7 @@ const Assignments = () => {
                 assignee: [parseInt(userD.user.id)],
                 authorId: parseInt(userD.user.id)
             },
-        }).catch(e => console.log(e))
+        })
     }
 
     const showDetails = (assignmentId) => {
@@ -29,6 +29,7 @@ const Assignments = () => {
     }
 
     if (loading) return 'Loading...';
+    console.log(data)
     const { entries } = data;
     return (
         <>
