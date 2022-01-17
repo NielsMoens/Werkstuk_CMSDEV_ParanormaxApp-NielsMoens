@@ -9,9 +9,13 @@ const Register = () => {
     const { isAuthenticated, registerUser } = useAuth();
 
     const [data, setData] = useState({
+        username: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        password: ''
+        password: '',
     });
+    console.log()
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -46,9 +50,50 @@ const Register = () => {
                                 <div className="card-body px-5 py-5">
                                     <h3 className="card-title text-left mb-3">Register</h3>
                                     <form onSubmit={handleSubmit}>
+                                        {/*<div className="form-group">*/}
+                                        {/*    <label>Username</label>*/}
+                                        {/*    <input type="text" className="form-control p_input"/>*/}
+                                        {/*</div>*/}
+
                                         <div className="form-group">
                                             <label>Username</label>
-                                            <input type="text" className="form-control p_input"/>
+                                            <Input
+                                                placeholder="username"
+                                                id="username"
+                                                className="form-control p_input"
+                                                type="username"
+                                                name="username"
+                                                value={data.username}
+                                                onChange={handleChange}
+                                                // error={errors.email}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>firstname</label>
+                                            <Input
+                                                placeholder="firstName"
+                                                id="firstName"
+                                                className="form-control p_input"
+                                                type="text"
+                                                name="firstName"
+                                                value={data.firstName}
+                                                onChange={handleChange}
+                                                // error={errors.email}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>lastname</label>
+                                            <Input
+                                                placeholder="lastName"
+                                                id="lastName"
+                                                className="form-control p_input"
+                                                type="text"
+                                                name="lastName"
+                                                value={data.lastName}
+                                                onChange={handleChange}
+                                                // error={errors.email}
+                                            />
+
                                         </div>
                                         <div className="form-group">
                                             <label>Email</label>

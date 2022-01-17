@@ -1,6 +1,14 @@
 import Image from "../../compenents/Design/Image";
+import {useQuery} from "@apollo/client";
+import GET_MEDIUMS from "../../lib/Queries/getMediums";
 
 const Profile = () => {
+    const getMedium = useQuery(GET_MEDIUMS);
+    const { data, loading, error } = getMedium;
+
+    if (loading) return 'Loading...';
+    console.log(data);
+    const { users } = data;
     return (
         <>
             <div className="content-wrapper">
@@ -22,8 +30,8 @@ const Profile = () => {
 
                 {/*Assigment page*/}
                 <div className="row">
-                    {/*{entries.map((entry) => (*/}
-                        <div key='1' className="col-xl-3 col-sm-6 grid-margin stretch-card">
+                    {users.map((entry) => (
+                        <div key={entry.id} className="col-xl-3 col-sm-6 grid-margin stretch-card">
                             <div className="card">
                                 <div className="card-body">
                                     <div className="row">
@@ -31,7 +39,7 @@ const Profile = () => {
                                         <div className="col-12 mb-4">
                                             <div className=" row d-flex align-items-center align-self-start">
                                                 <div className="col-9">
-                                                    <h3 className="mb-0">name</h3>
+                                                    <h3 className="mb-0">{entry.username}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -45,7 +53,7 @@ const Profile = () => {
                                 </div>
                             </div>
                         </div>
-                    {/*))}*/}
+                    ))}
                 </div>
             </div>
         </>

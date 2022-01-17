@@ -4,7 +4,6 @@ import {getUser} from "../../../core/storage";
 import MUTATE_QUEUE_ASSIGN_USER from "../../../../lib/mutations/queueUserAssignment";
 import {useRouter} from "next/router";
 
-// voor dat je user approved => popup met alle queued users per assignment
 
 const Assignments = () => {
     const router = useRouter();

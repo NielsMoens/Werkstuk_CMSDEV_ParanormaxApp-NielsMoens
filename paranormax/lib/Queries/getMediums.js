@@ -1,28 +1,19 @@
 import {gql} from "@apollo/client";
 
-const GET_ASSIGNMENTS = gql`
-    query MyQuery {
-      entries(section: "assigments") {
-        id
-        ... on assigments_default_Entry {
-        title
-        shortDescription
-        longDescription
-        postDate
-          mainImage {
-            id
-            url
-          }
-          assigmentStatus {
-            title
-          },
-          assignee {
-            id,
-            name
-          }
-        }
-      }
+const GET_MEDIUMS = gql`
+      query getMediums {
+  users(group: "mediums") {
+    id
+    email
+    firstName
+    lastName
+    photo {
+      url
     }
-    `;
+    dateUpdated
+    username
+  }
+}
+`;
 
-export default GET_ASSIGNMENTS;
+export default GET_MEDIUMS;
