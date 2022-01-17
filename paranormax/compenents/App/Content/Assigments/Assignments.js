@@ -73,7 +73,7 @@ const Assignments = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src={entry.mainImage[0].url} alt="..."
+                                        <img src={entry.mainImage[0] ? entry.mainImage[0].url : "https://via.placeholder.com/150" } alt="..."
                                              className="img-fluid img-thumbnail"/>
                                     </div>
 

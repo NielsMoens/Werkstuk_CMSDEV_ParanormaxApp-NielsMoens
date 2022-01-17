@@ -80,7 +80,6 @@ const AssignmentDetail = () => {
                                     </div>
 
                                     { entry.assigneeStatus.length >= 0 ?
-
                                         <div className="row">
                                             {entry.assignee.map((assignee) => (
                                                 <div key={assignee.id} className="col-12">

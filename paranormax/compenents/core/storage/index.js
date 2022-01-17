@@ -7,14 +7,6 @@ const saveUser = () => {
     return null
 }
 
-// };const saveUser = () => {
-//     if (typeof window !== "undefined") {
-//         const user = localStorage.getItem("KEY_USER");
-//         return  JSON.parse(user) ;
-//     }
-//     return null
-// };
-
 const removeUser = () => {
     if (typeof window !== "undefined") {
         localStorage.removeItem("KEY_USER")
@@ -23,10 +15,7 @@ const removeUser = () => {
 
 const getUser= () => {
     const user = saveUser();
-    // let firstname = user.firstName;
 
-    // console.log('get from store', user)
-    // const isValid = user;
      return user;
 }
 
