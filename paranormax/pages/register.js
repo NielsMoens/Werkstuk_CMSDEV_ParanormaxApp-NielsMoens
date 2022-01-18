@@ -1,4 +1,3 @@
-import Footer from "../compenents/App/Footer/Footer";
 import {useEffect, useState} from "react";
 import Input from "../compenents/Design/Input";
 import {useRouter} from "next/router";

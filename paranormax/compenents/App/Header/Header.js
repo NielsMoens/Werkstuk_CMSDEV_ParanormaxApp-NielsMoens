@@ -3,6 +3,7 @@ import Link from "next/link";
 import {useAuth} from "../../../hooks/useAuth";
 
 const Header = () => {
+
     const { isAuthenticated, logoutUser } = useAuth();
 
     const logout = (e) => {

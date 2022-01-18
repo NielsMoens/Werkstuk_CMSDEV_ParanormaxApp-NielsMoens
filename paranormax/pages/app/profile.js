@@ -1,14 +1,13 @@
 import {getUser} from "../../compenents/core/storage";
-import Image from 'next/image';
-import {useRouteMatch} from "react-router-dom";
+
+
+// get the user data from the current user form the localStorage to display on there profile page
 
 const Profile = () => {
 
     const {user} = getUser();
     const userD = user;
-    console.log('test',userD)
 
-    // console.log(userName.user.firstName);
     return (
         <>
             <section className="vh-100" >

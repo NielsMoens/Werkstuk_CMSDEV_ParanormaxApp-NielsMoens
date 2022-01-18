@@ -1,5 +1,6 @@
 import {gql} from "@apollo/client";
 
+//  query to get all assignments
 const GET_ASSIGNMENTS = gql`
     query MyQuery {
       entries(section: "assigments") {

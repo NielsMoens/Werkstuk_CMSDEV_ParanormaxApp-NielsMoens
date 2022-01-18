@@ -2,12 +2,13 @@ import Image from "../../compenents/Design/Image";
 import {useQuery} from "@apollo/client";
 import GET_MEDIUMS from "../../lib/Queries/getMediums";
 
+//  get all users that are approved into the "Mediums" user group
+
 const Profile = () => {
     const getMedium = useQuery(GET_MEDIUMS);
     const { data, loading, error } = getMedium;
 
     if (loading) return 'Loading...';
-    console.log(data);
     const { users } = data;
     return (
         <>

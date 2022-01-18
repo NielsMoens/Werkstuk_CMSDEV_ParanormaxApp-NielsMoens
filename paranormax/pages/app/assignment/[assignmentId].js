@@ -19,6 +19,8 @@ const AssignmentDetail = () => {
     if (loading) return (
         <></>
     );
+
+    // get the user data from localStorage to fill in on the page
     const userD = getUser();
 
     const { entries } = data;
@@ -29,6 +31,8 @@ const AssignmentDetail = () => {
 
     const assignment = entries[0].assignment;
 
+    // when the accept button is click trigger this to set the assignment status to accepted
+    // and assign the user as assignee
     const acceptAssignment = async (entryId, assigneeId) => {
         await setQueuedUserStatus({
             variables: {
@@ -45,6 +49,7 @@ const AssignmentDetail = () => {
         })
     }
 
+    // decline a user as Assignee and set the assignment page to searching
     const denyAssignment = async (entryId) => {
         console.log(entryId)
         const response = await setQueuedUserStatus({

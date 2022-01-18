@@ -3,8 +3,6 @@ import GET_ASSIGNMENTS from "../../../../lib/Queries/getAssigments";
 import {getUser} from "../../../core/storage";
 import MUTATE_QUEUE_ASSIGN_USER from "../../../../lib/mutations/queueUserAssignment";
 import {useRouter} from "next/router";
-import {Link} from "react-router-dom";
-
 
 const Assignments = () => {
     const router = useRouter();
@@ -14,6 +12,7 @@ const Assignments = () => {
 
     const userD = getUser();
 
+    // if a user wants to Assign him/her to an assignment collect that userData for in de queue
     const assignUser = async (assignmentId) => {
         await queueUserAssignment({
             variables: {
@@ -24,12 +23,12 @@ const Assignments = () => {
         })
     }
 
+    // route to the queue page what the assignment requests are collected & displayed
     const showDetails = (assignmentId) => {
         return router.push(`/app/assignment/${assignmentId}`);
     }
 
     if (loading) return 'Loading...';
-    console.log(data)
     const { entries } = data;
     return (
         <>

@@ -1,5 +1,6 @@
 import {gql} from "@apollo/client";
 
+// Mutation that create a new assignment
 const MUTATE_CREATE_ASSIGNMENT = gql`
    mutation createNewAssignment($title: String!, $date: DateTime, $shortDescription: String!, $id: ID ) {
     save_assigments_default_Entry(

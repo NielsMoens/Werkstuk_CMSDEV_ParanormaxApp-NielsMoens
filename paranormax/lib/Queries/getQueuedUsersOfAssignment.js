@@ -1,5 +1,6 @@
 import {gql} from "@apollo/client";
 
+// query to get all medium that applied to and assignment
 const GET_QUEUED_ASSIGNMENTS_OF_ASSIGNMENT = gql`
     query MyQuery($assignment: [QueryArgument]) {
       entries(assignment: $assignment) {

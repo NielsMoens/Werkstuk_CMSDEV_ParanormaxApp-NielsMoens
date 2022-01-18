@@ -8,8 +8,7 @@ const Assignments = () => {
     const router = useRouter();
     const [createNewAssignment] = useMutation(MUTATE_CREATE_ASSIGNMENT);
 
-
-    // To Do
+    // TODO wip fix the localStorage for on the deloynment
     // const saveUser = () => {
     //     if (typeof window !== "undefined") {
     //         const user = localStorage.getItem("KEY_USER");
@@ -25,7 +24,6 @@ const Assignments = () => {
     // }
     // const userd = getUserId()
     // console.log(userd)
-
 
     const onSubmit = (e) => {
         e.preventDefault()

@@ -7,6 +7,11 @@ import {REGISTER_USER} from "../../lib/mutations/register";
 
 export const AuthContext = createContext();
 
+//  The AuthProvider is responsible for
+//  user login authentication and store it in the localstorage,
+//  registering new users to the "ToBeApproved" user group &
+//  logout by Clearing the localstorage
+
 export const AuthProvider = ({children}) => {
     const { push } = useRouter();
 

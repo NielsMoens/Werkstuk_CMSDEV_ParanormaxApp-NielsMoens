@@ -1,5 +1,6 @@
 import {gql} from "@apollo/client";
 
+//  query to get user login data
 const GET_LOGINDATA = gql`
    mutation Authenticate($email:String! ,$password:String! ) {
     authenticate(
