@@ -4,13 +4,9 @@ import {useRouteMatch} from "react-router-dom";
 
 const Profile = () => {
 
-    // const userName = getUser();
-    //
-    // console.log('test',userName);
-    // const profiledata =
-    // let firstName = userName.user.firstName;
-    // let lastName = userName.user.lastName;
-    // let email = userName.user.email;
+    const {user} = getUser();
+    const userD = user;
+    console.log('test',userD)
 
     // console.log(userName.user.firstName);
     return (
@@ -22,38 +18,30 @@ const Profile = () => {
                             <div className="card mb-3" >
                                 <div className="row g-0">
                                     <div className="col-md-4 gradient-custom text-center text-white">
-                                        {/*<Image*/}
-                                        {/*    src=""*/}
-                                        {/*    alt="Avatar"*/}
-                                        {/*    className="img-fluid my-5 w-50 "*/}
-                                        {/*/>*/}
+                                        <img
+                                            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                            alt="Avatar"
+                                            className="img-fluid my-5 w-50 "
+                                        />
                                         <h5> </h5>
                                         <i className="far fa-edit mb-5"></i>
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body p-4">
                                             <h6>Information</h6>
-                                                <div className="row pt-1">
-                                                    <div className="col-6 mb-3">
-                                                        <h6>firstName</h6>
-                                                        <p className="text-muted"></p>
-                                                    </div>
-                                                    <div className="col-6 mb-3">
-                                                        <h6>LastName</h6>
-                                                        <p className="text-muted"></p>
-                                                    </div> <div className="col-6 mb-3">
-                                                        <h6>Email</h6>
-                                                        <p className="text-muted"></p>
-                                                    </div>
-
+                                            <div className="row pt-1">
+                                                <div className="col-6 mb-3">
+                                                    <h6>firstname</h6>
+                                                    <p className="text-muted">{userD.firstName}</p>
                                                 </div>
-                                                <h6>Projects</h6>
-                                                    <div className="row pt-1">
-                                                        <div className="col-6 mb-3">
-                                                            <h6>Recent</h6>
-                                                            <p className="text-muted">Lorem ipsum</p>
-                                                        </div>
-                                                    </div>
+                                                <div className="col-6 mb-3">
+                                                    <h6>lastname</h6>
+                                                    <p className="text-muted">{userD.lastName}</p>
+                                                </div> <div className="col-6 mb-3">
+                                                    <h6>email</h6>
+                                                    <p className="text-muted">{userD.email}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

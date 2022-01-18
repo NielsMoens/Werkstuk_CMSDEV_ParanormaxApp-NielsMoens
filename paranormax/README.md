@@ -1,3 +1,19 @@
+<h1>Paranormax CMS theme site </h1>
+
+<h2>ScreenRecording</h2>
+<li>
+    <a href="https://vimeo.com/667284010">Click here to see the screenRecordinge of the CMSthemeSite</a>
+</li>
+<li>
+    <a href="https://vimeo.com/667283742">Click here to see the screenRecordinge of the Web App</a>
+</li>
+
+<h2>Links to source code</h2>
+<a href="https://github.com/NielsMoens/Werkstuk_CMSDEV_Paranormax-NielsMoens"> CMS Theme Website </a><br>
+<a href="https://github.com/NielsMoens/Werkstuk_CMSDEV_ParanormaxApp-NielsMoens"> Web App </a>
+
+<h1>About the project</h1>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -9,26 +25,47 @@ npm run dev
 # or
 yarn dev
 ```
+Wegens het grote succes en nationale bekendheid van Paranormax werd intern beslist om een uitzendbureau te starten.
+Er is immers nood aan een vertrouwelijke en veilige organisatie waar je pro mediums kan vinden.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Je kan het eigenlijk als een sociaal netwerk zien, dat paranormale activiteiten / enthousiastelingen / slachtoffers met elkaar verbindt.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Het werkstuk is tweeledig. Het volledige werkstuk wordt beheerd via een centraal CMS (Wordpress / Drupal / Craft CMS).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Er is een App (web / native) en er is een Site (theme in cms).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+App (web / native) - gekoppeld via API aan CMS
 
-## Learn More
+Mobile first, geschreven in react / angular / vue / ...
 
-To learn more about Next.js, take a look at the following resources:
+De app is het effectieve sociale netwerk / uitzendbureau.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Voor de app moet je ingelogd zijn, registratie kan via de app; maar ook via de site.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Er zijn twee soorten members: Opdrachtgevers & Mediums
 
-## Deploy on Vercel
+Opdrachtgevers
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Kunnen eigen profiel in app bewerken (naam, gsm, email, adres, social media, ...)
+Kunnen hun vraag/opdracht doorsturen via een formulier
+Velden: Vraag, Omschrijving, Plaats, Tijdstip/Deadline
+Krijgen een email bij goedkeuring of afkeuring van hun vraag.
+Voorbeeldvragen:
+'Mijn zoon is bezeten door de duivel!'
+'Ik wil de code van de kluis vragen aan mijn overleden oma'
+Als een of meerdere mediums zich kandidaat stellen, kan de opdrachtgever een kiezen (vb op basis van profiel / locatie / kostprijs) en kan die verder afspreken.
+bevestigde medium = zichtbare contactgegevens voor beide partijen zodat ze contact kunnen opnemen met elkaar
+Mediums
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Kunnen zich registreren als medium, maar...
+Registratie moet manueel goedgekeurd worden door een Paranormax medewerker (uploaden van geldig mediumdiploma.png tijdens de registratie)
+Kunnen via hun profiel hun specialisatie(s) toevoegen.
+(toekomstvoorspellingen, geestoproepingen, duiveluitdrijvingen, ...)
+Kunnen opdrachten bekijken en zich kandidaat stellen als ze aan de vereisten voldoen (juiste specialiteit).
+voor het kandidaat stellen geeft de medium er een prijs voor op, betaling hoeft niet in de app, maar is eerder een nice-to-have.
+Zien op hun profiel hun huidige opdrachten en een historiek van voltooide opdrachten met status (fullfilled/failed).
+Hoe meer voltooide opdrachten, hoe meer karma / punten!
+
+Eventueel: Opdrachten kunnen gefilterd worden op basis van specialiteit van de medium.
+
+Bonuspunten: registratie via third party (Google / Apple / Facebook / ...)
