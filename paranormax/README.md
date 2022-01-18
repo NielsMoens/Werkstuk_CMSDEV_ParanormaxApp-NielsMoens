@@ -11,6 +11,7 @@
 <h2>Links to source code</h2>
 <a href="https://github.com/NielsMoens/Werkstuk_CMSDEV_Paranormax-NielsMoens"> CMS Theme Website </a><br>
 <a href="https://github.com/NielsMoens/Werkstuk_CMSDEV_ParanormaxApp-NielsMoens"> Web App </a>
+(incase the webApp gives you DNS errors use this <a href="https://hardcore-swanson-20ef3a.netlify.app/"> LINK</a>)
 
 <h1>About the project</h1>
 
