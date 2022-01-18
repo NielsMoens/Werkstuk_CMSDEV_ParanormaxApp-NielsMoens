@@ -2,10 +2,10 @@
 
 <h2>ScreenRecording</h2>
 <li>
-    <a href="https://vimeo.com/667284010">Click here to see the screenRecordinge of the CMSthemeSite</a>
+    <a href="https://vimeo.com/667284010">Click here to see the screenRecording of the CMSthemeSite</a>
 </li>
 <li>
-    <a href="https://vimeo.com/667283742">Click here to see the screenRecordinge of the Web App</a>
+    <a href="https://vimeo.com/667283742">Click here to see the screenRecording of the Web App</a>
 </li>
 
 <h2>Links to source code</h2>
