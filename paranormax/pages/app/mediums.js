@@ -35,11 +35,20 @@ const Profile = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <div className="row">
-                                        <Image src="https://via.placeholder.com/1600x900" alt="..." className="img-fluid img-thumbnail" />
+                                        <Image src={entry.photo ? entry.photo.url : "https://via.placeholder.com/1600x900" } alt="..." className="img-fluid img-thumbnail" />
                                         <div className="col-12 mb-4">
                                             <div className=" row d-flex align-items-center align-self-start">
-                                                <div className="col-9">
-                                                    <h3 className="mb-0">{entry.username}</h3>
+                                                <div className="col-6">
+                                                    <span>username:</span><h3 className="mb-0">{entry.username}</h3>
+                                                </div>
+                                                <div className="col-6">
+                                                    <span>firstname:</span><h3 className="mb-0">{entry.firstName}</h3>
+                                                </div>
+                                                <div className="col-6">
+                                                    <span>lastname:</span><h3 className="mb-0">{entry.lastName}</h3>
+                                                </div>
+                                                <div className="col-6">
+                                                    <span>email:</span><h3 className="mb-0">{entry.email}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,7 +56,7 @@ const Profile = () => {
 
                                     <div className="row">
                                         <div className="col-9 mt-3">
-                                            <p className="text-muted font-weight-normal">Bio</p>
+                                            <p className="text-muted font-weight-normal">{}</p>
                                         </div>
                                     </div>
                                 </div>

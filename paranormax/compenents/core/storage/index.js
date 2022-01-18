@@ -18,6 +18,12 @@ const getUser= () => {
 
      return user;
 }
+const getUserId = () => {
+    const {user} = saveUser();
+    let userId=user.id;
+    console.log(userId);
+    return userId;
+}
 
 const storeUser = (user) => {
     if (typeof window !== "undefined") {
@@ -26,4 +32,4 @@ const storeUser = (user) => {
 };
 
 
-export  {  storeUser, getUser, removeUser };
+export  {  storeUser, getUser, removeUser, getUserId };

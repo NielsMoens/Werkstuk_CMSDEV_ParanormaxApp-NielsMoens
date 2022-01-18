@@ -3,6 +3,7 @@ import GET_ASSIGNMENTS from "../../../../lib/Queries/getAssigments";
 import {getUser} from "../../../core/storage";
 import MUTATE_QUEUE_ASSIGN_USER from "../../../../lib/mutations/queueUserAssignment";
 import {useRouter} from "next/router";
+import {Link} from "react-router-dom";
 
 
 const Assignments = () => {
@@ -48,6 +49,9 @@ const Assignments = () => {
                         </div>
                     </div>
                 </div>
+                <div className="pb-3">
+                    <a href="/app/createAssigment"><button className="add btn btn-primary todo-list-add-btn" >create Assignment </button></a>
+                </div>
 
                 {/*Assigment page*/}
                 <div className="row">
@@ -66,13 +70,13 @@ const Assignments = () => {
                                                     </span>
                                                 </div>
                                                 <div className="col-3">
-                                                    <button onClick={(e) => { e.preventDefault(); return showDetails(entry.id) }}>
+                                                    <button className="btn btn-outline-primary" onClick={(e) => { e.preventDefault(); return showDetails(entry.id) }}>
                                                         show details
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src={entry.mainImage[0] ? entry.mainImage[0].url : "https://via.placeholder.com/150" } alt="..."
+                                        <img src={entry.mainImage[0] ? entry.mainImage[0].url : "https://via.placeholder.com/1600x900" } alt="..."
                                              className="img-fluid img-thumbnail"/>
                                     </div>
 
